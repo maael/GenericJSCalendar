@@ -53,10 +53,11 @@ calendar = {
                 table += "<td></td>";
             } else {
                 var cell = "<td class='day'>"+(i-startDay)+"</td>";
-                (i%7==1) ? table += "</tr><tr>"+cell : table += cell; 
+                (i%7==1 && i!=1) ? table += "</tr><tr>"+cell : table += cell; 
             }  
         }
-        for(var i=0;i<(35-(daysInMonth+startDay));i++){
+        var rowCount = (table.split("<tr>").length - 1)-2;
+        for(var i=0;i<((7*rowCount)-(daysInMonth+startDay));i++){
             table += "<td></td>";
         }
         table += "</tr></tbody></table>";
